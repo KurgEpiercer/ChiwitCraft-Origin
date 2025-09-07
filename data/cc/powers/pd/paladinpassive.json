@@ -2,24 +2,24 @@
     "type": "origins:multiple",
     "hidden": true,
 
-    "name": "Heavenly Presence",
-    "description": "You have a halo above your head and slowly regenerate health",
+    "name": "Protector Presence",
+    "description": "You have a halo above your head making you more resistant to damage",
 
-    "angel_tag": {
+    "paladin_tag": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:execute_command",
-            "command": "tag @s add angel",
+            "command": "tag @s add paladin",
             "permission_level": 4
         },
         "entity_action_lost": {
             "type": "origins:execute_command",
-            "command": "tag @s remove angel",
+            "command": "tag @s remove paladin",
             "permission_level": 4
         },
-        "": {
+        "kill_halo": {
             "type": "origins:execute_command",
-            "command": "kill @e[name=angelhalo,limit=1,sort=nearest]",
+            "command": "kill @e[name=paladinhalo,limit=1,sort=nearest]",
             "permission_level": 4
         }
     },
@@ -27,7 +27,7 @@
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:execute_command",
-            "command": "summon armor_stand ~ ~-12 ~ {CustomName:'{\"text\":\"angelhalo\"}',NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}",
+            "command": "summon armor_stand ~ ~-12 ~ {CustomName:'{\"text\":\"paladinhalo\"}',NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}",
             "permission_level": 4
         }
     },
@@ -36,7 +36,7 @@
         "interval": 2,
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute as @e[name=angelhalo] at @s run tp @s ~ ~ ~ ~20 ~"
+            "command": "execute as @e[name=paladinhalo] at @s run tp @s ~ ~ ~ ~20 ~"
         }
     },
     "tp_halo_player": {
@@ -44,7 +44,7 @@
         "interval": 1,
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute as @e[name=angelhalo] at @e[tag=angel,limit=1,sort=nearest] run tp @s ~ ~-12 ~"
+            "command": "execute as @e[name=paladinhalo] at @e[tag=paladin,limit=1,sort=nearest] run tp @s ~ ~-12 ~"
         }
     },
     "halo_particle_part2": {
@@ -52,7 +52,7 @@
         "interval": 1,
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute at @e[name=angelhalo] positioned ^ ^0.1 ^-0.38 run particle dust{color:[1.0,0.95,0.4],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
+            "command": "execute at @e[name=paladinhalo] positioned ^ ^0.1 ^0.38 run particle dust{color:[0.6,0.85,1.0],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
         }
     },
     "regeneration": {
@@ -60,7 +60,7 @@
         "interval": 5,
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "effect give @s regeneration 2 0 true"
+            "command": "effect give @s resistance 2 0 true"
         }
     }
 }
