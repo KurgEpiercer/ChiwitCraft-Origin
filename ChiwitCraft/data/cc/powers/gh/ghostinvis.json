@@ -1,0 +1,129 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+
+    "invisibility": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:gh/ghostinvis_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "mana_drain_overtime": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:mr/mana",
+            "change": -2
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:gh/ghostinvis_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "regen_delay_setter": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:mr/manaregen_delay",
+            "change": 5
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "*:gh/ghostinvis_action"
+        }
+    },
+    "on_toggle_effects": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+            },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.illusioner.cast_spell master @s ~ ~ ~ 1 1"   
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.phantom.ambient master @s ~ ~ ~ 1 1"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:soul ~ ~1 ~ 0.5 0.5 0.5 0.05 20 force"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "particle dust_color_transition{from_color:[0.0,0.89,0.96],to_color:[0.0,0.0,0.0],scale:1} ~ ~1 ~ 0.5 0.5 0.5 0 60 force"
+        }
+        ]
+        }
+    },
+    "feet_tracking_trail": {
+        "type": "origins:action_over_time",
+        "interval": 3,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+        {
+            "type": "origins:execute_command",
+            "command": "particle dust_color_transition{from_color:[0.02,0.51,0.55],to_color:[0.0,0.0,0.0],scale:1} ~ ~0.1 ~ 0.35 0 0.35 0 20 force"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "effect give @s minecraft:speed 1 1 true"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "effect give @s minecraft:weakness 1 1 true"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "effect give @s minecraft:mining_fatigue 1 0 true"
+        }
+        ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:gh/ghostinvis_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    }
+}

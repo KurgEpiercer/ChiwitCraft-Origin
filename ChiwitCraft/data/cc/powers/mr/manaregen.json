@@ -1,0 +1,28 @@
+{
+    "name": "Mana Regen",
+    "hidden": true,
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:change_resource",
+        "resource": "*:mr/mana",
+        "change": 2
+    },
+    "interval": 20,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "*:mr/mana",
+                "comparison": "<",
+                "compare_to": 100
+            },
+            {
+                "type": "origins:resource",
+                "resource": "*:mr/manaregen_delay",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        ]
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "origins:change_resource",
+  "resource": "*:mr/manaregen_delay",
+  "change": 5,
+  "operation": "set"
+}

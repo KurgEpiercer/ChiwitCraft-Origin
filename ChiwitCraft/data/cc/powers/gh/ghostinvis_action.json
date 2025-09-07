@@ -1,0 +1,11 @@
+{
+    "type": "origins:toggle",
+    "name": "Spectral Form",
+    "description": "Enter the Spectral form, going invisible. Leaving behind trails.",
+    "active_by_default": false,
+    "retain_state": false,
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    }
+}

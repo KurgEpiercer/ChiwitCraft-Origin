@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "cc:mr/mana",
+        "cc:mr/manaregen",
+        "cc:mr/manaregen_delay",
+        "cc:mr/manaregen_delayreset",
+        "cc:mr/manaregen_delaytick"
+    ],
+    "icon": {
+        "id": "minecraft:redstone"
+    },
+    "order": 3,
+    "impact": 2,
+    "name": "Reaper",
+    "description": "A Spirit capable of going invisible and moving faster than others. The only downside is its fragility (Made by Kuurg)"
+}

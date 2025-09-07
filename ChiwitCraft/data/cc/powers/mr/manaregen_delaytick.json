@@ -1,0 +1,16 @@
+{
+    "type": "origins:action_over_time",
+    "hidden": true,
+    "interval": 20,
+    "entity_action": {
+    "type": "origins:change_resource",
+    "resource": "*:mr/manaregen_delay",
+    "change": -1
+    },
+    "condition": {
+    "type": "origins:resource",
+    "resource": "*:mr/manaregen_delay",
+    "comparison": ">",
+    "compare_to": 0
+    }
+}

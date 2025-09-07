@@ -1,0 +1,60 @@
+{
+    "type": "origins:active_self",
+    "name": "Haunting Fog",
+    "description": "Create a fog around yourself, weakening others.",
+    "cooldown": 40,
+    "condition": {
+        "type": "origins:resource",
+        "resource": "*:mr/mana",
+        "comparison": ">=",
+        "compare_to": 50
+    },
+    "key": {
+        "key": "key.origins.secondary_active",
+        "continuous": false
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "particle dust_color_transition{from_color:[0.02,0.51,0.55],to_color:[0.0,0.0,0.0],scale:4} ~ ~1 ~ 15 2 15 0 2000 force"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:sweep_attack ~ ~ ~ 15 2 15 6 100 force"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:poof{scale:10} ~ ~ ~ 15 2 15 0 200 force"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute as @a[distance=..15,tag=!ghost] run effect give @s minecraft:slowness 5 3 true"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute as @a[distance=..15,tag=!ghost] run effect give @s minecraft:weakness 5 0 true"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute as @a[distance=..30,tag=!ghost] run effect give @s minecraft:darkness 5 0 true"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.fire.extinguish master @a[distance=..30] ~ ~ ~ 3 0"
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "*:mr/mana",
+                "change": -50
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "*:mr/manaregen_delay",
+                "operation": "set",
+                "change": 5
+            }
+        ]
+    }
+}

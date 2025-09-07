@@ -1,0 +1,9 @@
+{
+    "name": "Regen Delay",
+    "description": "Internal variable that delays mana regen after using any skill.",
+    "type": "origins:resource",
+    "min": 0,
+    "max": 5,
+    "start_value": 0,
+    "hidden": true
+}

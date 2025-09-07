@@ -1,0 +1,21 @@
+{
+    "powers": [
+        "cc:gh/ghostinvis",
+        "cc:gh/ghostinvis_action",
+        "cc:gh/ghostfog_action",
+        "cc:gh/ghostpassive",
+        "cc:gh/ghosthealthdecrease",
+        "cc:mr/mana",
+        "cc:mr/manaregen",
+        "cc:mr/manaregen_delay",
+        "cc:mr/manaregen_delayreset",
+        "cc:mr/manaregen_delaytick"
+    ],
+    "icon": {
+        "id": "minecraft:soul_lantern"
+    },
+    "order": 2,
+    "impact": 1,
+    "name": "Ghost",
+    "description": "A Spirit capable of going invisible and moving faster than others. The only downside is its fragility (Made by Kuurg)"
+}
