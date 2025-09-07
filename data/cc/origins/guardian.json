@@ -1,7 +1,8 @@
 {
-    "name": "Guardian",
+    "name": "Palladin",
     "description": "ผูเ้พิทักษ์ที่มีพลังในการฟื้นฟูและปกป้องผู้อื่น",
     "powers": [
+        "cc:gd/protection",
         "cc:mr/mana",
         "cc:mr/manaregen",
         "cc:mr/manaregen_delay",
