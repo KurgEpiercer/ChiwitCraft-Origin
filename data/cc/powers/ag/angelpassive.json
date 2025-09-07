@@ -2,6 +2,9 @@
     "type": "origins:multiple",
     "hidden": true,
 
+    "name": "Heavenly Presence",
+    "description": "You have a halo above your head and slowly regenerate health",
+
     "angel_tag": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -36,15 +39,15 @@
         "interval": 1,
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute as @e[name=halo] at @e[tag=angel] run tp @s ~ ~-12 ~"
+            "command": "execute as @e[name=halo] at @e[tag=angel,limit=1,sort=nearest] run tp @s ~ ~-12 ~"
         }
     },
-    "halo_particle": {
+    "halo_particle_part2": {
         "type": "origins:action_over_time",
-        "interval": 2,
+        "interval": 1,
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute at @e[name=halo] positioned ^ ^0.1 ^0.5 run particle minecraft:end_rod ~ ~14.4 ~ 0 0 0 0 10 force @a"
+            "command": "execute at @e[name=halo] positioned ^ ^0.1 ^-0.38 run particle dust{color:[1.0,0.95,0.4],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
         }
     },
     "regeneration": {

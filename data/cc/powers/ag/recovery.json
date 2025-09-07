@@ -1,11 +1,11 @@
 {
   "name": "Recovery",
-  "description": "§fAOE Heal",
+  "description": "Heal nearby allies and remove negative effects at the cost of mana.",
   "type": "origins:active_self",
   "cooldown": 400,
   "hud_render": {
-    "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-    "bar_index": 20,
+    "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+    "bar_index": 14,
     "condition": {
         "type": "origins:resource",
         "resource": "*:mr/mana",
@@ -14,7 +14,7 @@
     }
   },
   "key": {
-    "key": "key.origins.secondary_active"
+    "key": "key.origins.primary_active"
   },
   "animation": {
     "type": "origins:player_animation",
@@ -30,9 +30,18 @@
       {
         "type": "origins:play_sound",
         "sound": "minecraft:entity.warden.sonic_boom",
-        "volume": 1,
-        "pitch": 0.8
+        "category": "master",
+        "volume": 2,
+        "pitch": 1.5
       },
+      {
+        "type": "origins:play_sound",
+        "sound": "minecraft:entity.allay.ambient_with_item",
+        "category": "master",
+        "volume": 2,
+        "pitch": 1.5
+      },
+      
         {
             "type": "origins:change_resource",
             "resource": "*:mr/mana",
@@ -44,9 +53,29 @@
                 "operation": "set",
                 "change": 5
                 },
-        {
+      {
         "type": "origins:execute_command",
         "command": "effect give @e[distance=..7] minecraft:instant_health 1 0 false"
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "effect clear @e[distance=..7] minecraft:wither"
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "effect clear @e[distance=..7] minecraft:darkness"
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "effect clear @e[distance=..7] minecraft:blindness"
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "effect clear @e[distance=..7] minecraft:nausea"
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "effect clear @e[distance=..7] minecraft:weakness"
       },
       {
         "type": "origins:execute_command",
@@ -58,7 +87,7 @@
       },
       {
         "type": "origins:execute_command",
-        "command": "particle dust_color_transition{from_color:[1.0,0.87,0.0],to_color:[1.0,0.93,0.53],scale:1} ~ ~1 ~ 7 0 5 0.15 200 force"
+        "command": "particle dust_color_transition{from_color:[1.0,0.87,0.0],to_color:[1.0,0.93,0.53],scale:1} ~ ~0.3 ~ 7 0 5 0.15 500 force"
       }
     ]
   }

@@ -2,7 +2,11 @@
     "type": "origins:active_self",
     "name": "Haunting Fog",
     "description": "Create a fog around yourself, weakening others.",
-    "cooldown": 40,
+    "cooldown": 600,
+    "hud_render": {
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+        "bar_index": 18
+    },
     "condition": {
         "type": "origins:resource",
         "resource": "*:mr/mana",

@@ -2,13 +2,13 @@
     "name": "Angel",
     "description": "A celestial being gifted with healing powers and supportive abilities, inspiring hope in allies.",
     "powers": [
+        "cc:ag/recovery",
+        "cc:ag/angelpassive",
         "cc:mr/mana",
         "cc:mr/manaregen",
         "cc:mr/manaregen_delay",
         "cc:mr/manaregen_delayreset",
-        "cc:mr/manaregen_delaytick",
-        "cc:ag/recovery",
-        "cc:ag/angelpassive"
+        "cc:mr/manaregen_delaytick"
     ],
     "icon": {
         "id": "minecraft:feather"
