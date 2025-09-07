@@ -1,6 +1,6 @@
 {
-    "name":"Angel",
-    "description":"Angy",
+    "name": "Angel",
+    "description": "A celestial being gifted with healing powers and supportive abilities, inspiring hope in allies.",
     "powers": [
         "cc:mr/mana",
         "cc:mr/manaregen",
