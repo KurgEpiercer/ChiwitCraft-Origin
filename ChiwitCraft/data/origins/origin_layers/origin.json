@@ -2,6 +2,7 @@
     "replace": false,
     "origins": [
         "cc:ghost",
-        "cc:reaper"
+        "cc:reaper",
+        "cc:angel"
     ]
 }

@@ -1,0 +1,17 @@
+{
+    "name":"Angel",
+    "description":"Angy",
+    "powers": [
+        "cc:mr/mana",
+        "cc:mr/manaregen",
+        "cc:mr/manaregen_delay",
+        "cc:mr/manaregen_delayreset",
+        "cc:mr/manaregen_delaytick",
+        "cc:ag/recovery"
+    ],
+    "icon": {
+        "id": "minecraft:feather"
+    },
+    "order": 4,
+    "impact": 1
+}
