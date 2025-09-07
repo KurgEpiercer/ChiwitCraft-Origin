@@ -57,13 +57,5 @@
             "type": "origins:execute_command",
             "command": "effect give @s regeneration 2 0 true"
         }
-    },
-    "weakness": {
-        "type": "origins:action_over_time",
-        "interval": 5,
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": ""
-        }
     }
 }
