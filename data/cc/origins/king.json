@@ -1,0 +1,16 @@
+{
+    "name": "King",
+    "description": "You are a King, born to rule and command. You have the ability to inspire and lead others, and you possess a regal presence that demands respect.",
+    "powers": [
+        "cc:mr/mana",
+        "cc:mr/manaregen",
+        "cc:mr/manaregen_delay",
+        "cc:mr/manaregen_delayreset",
+        "cc:mr/manaregen_delaytick"
+    ],
+    "icon": {
+        "item": "minecraft:golden_helmet"
+    },
+    "order": 4,
+    "impact": 2
+}
