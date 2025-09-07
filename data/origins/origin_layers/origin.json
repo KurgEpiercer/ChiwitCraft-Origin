@@ -3,6 +3,7 @@
     "origins": [
         "cc:ghost",
         "cc:reaper",
-        "cc:angel"
+        "cc:angel",
+        "cc:guardian"
     ]
 }

@@ -1,0 +1,17 @@
+{
+    "name": "Palladin",
+    "description": "ผูเ้พิทักษ์ที่มีพลังในการฟื้นฟูและปกป้องผู้อื่น",
+    "powers": [
+        "cc:gd/protection",
+        "cc:mr/mana",
+        "cc:mr/manaregen",
+        "cc:mr/manaregen_delay",
+        "cc:mr/manaregen_delayreset",
+        "cc:mr/manaregen_delaytick"
+    ],
+    "icon": {
+        "id": "minecraft:shield"
+    },
+    "order": 4,
+    "impact": 1
+}
