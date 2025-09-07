@@ -1,0 +1,17 @@
+{
+    "name": "Paladin",
+    "description": "A holy warrior who excels in defense and protection, shielding allies from harm.",
+    "powers": [
+        "cc:pd/protection",
+        "cc:mr/mana",
+        "cc:mr/manaregen",
+        "cc:mr/manaregen_delay",
+        "cc:mr/manaregen_delayreset",
+        "cc:mr/manaregen_delaytick"
+    ],
+    "icon": {
+        "id": "minecraft:shield"
+    },
+    "order": 5,
+    "impact": 2
+}
