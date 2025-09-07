@@ -16,13 +16,17 @@
             "type": "origins:execute_command",
             "command": "tag @s remove paladin",
             "permission_level": 4
-        },
-        "kill_halo": {
+        }
+    },
+    "kill_halo": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
             "type": "origins:execute_command",
             "command": "kill @e[name=paladinhalo,limit=1,sort=nearest]",
             "permission_level": 4
         }
     },
+
     "summon_halo": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
