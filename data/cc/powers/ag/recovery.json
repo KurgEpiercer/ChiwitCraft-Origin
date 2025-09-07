@@ -1,5 +1,5 @@
 {
-  "name": "Recove",
+  "name": "Recovery",
   "description": "§fAOE Heal",
   "type": "origins:active_self",
   "cooldown": 400,
