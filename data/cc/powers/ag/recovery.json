@@ -33,17 +33,6 @@
         "volume": 1,
         "pitch": 0.8
       },
-      {
-        "type": "origins:spawn_particles",
-        "count": 150,
-        "particle": "minecraft:end_rod",
-        "speed": 0.15,
-        "spread": {
-          "x": 7,
-          "y": 1,
-          "z": 7
-        }
-      },
         {
             "type": "origins:change_resource",
             "resource": "*:mr/mana",
@@ -66,6 +55,10 @@
       {
         "type": "origins:execute_command",
         "command": "effect clear @e[distance=..7] minecraft:slowness"
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "particle dust_color_transition{from_color:[0.93,0.87,0.47],to_color:[1.0,1.0,1.0],scale:1} ~ ~1 ~ 7 0 5 0.15 200 force"
       }
     ]
   }
