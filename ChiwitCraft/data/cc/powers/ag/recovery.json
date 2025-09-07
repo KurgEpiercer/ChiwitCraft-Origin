@@ -44,7 +44,7 @@
           "z": 7
         }
       },
-         {
+        {
             "type": "origins:change_resource",
             "resource": "*:mr/mana",
             "change": -50

@@ -1,0 +1,66 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+
+    "angel_tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add angel",
+            "permission_level": 4
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove angel",
+            "permission_level": 4
+        }
+    },
+    "summon_halo": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "summon armor_stand ~ ~-12 ~ {CustomName:'{\"text\":\"halo\"}',NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}",
+            "permission_level": 4
+        }
+    },
+    "spin_halo": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute as @e[name=halo] at @s run tp @s ~ ~ ~ ~20 ~"
+        }
+    },
+    "tp_halo_player": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute as @e[name=halo] at @e[tag=angel] run tp @s ~ ~-12 ~"
+        }
+    },
+    "halo_particle": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @e[name=halo] positioned ^ ^0.1 ^0.5 run particle minecraft:end_rod ~ ~14.4 ~ 0 0 0 0 10 force @a"
+        }
+    },
+    "regeneration": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "effect give @s regeneration 2 0 true"
+        }
+    },
+    "weakness": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": ""
+        }
+    }
+}
