@@ -2,31 +2,23 @@
   "name": "Recovery",
   "description": "Heal and cleanse nearby allies, but harm those who emerged from the depths, at the cost of mana.",
   "type": "origins:active_self",
-  "cooldown": 20,
+  "cooldown": 1800,
   "hud_render": {
     "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-    "bar_index": 14,
+    "bar_index": 14
+    },
     "condition": {
         "type": "origins:resource",
         "resource": "*:mr/mana",
         "comparison": ">=",
-        "compare_to": 0
-    }
-  },
+        "compare_to": 70
+    },
   "key": {
     "key": "key.origins.primary_active"
-  },
-  "animation": {
-    "type": "origins:player_animation",
-    "animation": "origins:power_use"
   },
   "entity_action": {
     "type": "origins:and",
     "actions": [
-      {
-        "type": "origins:swing_hand",
-        "hand": "MAIN_HAND"
-      },
       {
         "type": "origins:play_sound",
         "sound": "minecraft:entity.warden.sonic_boom",
@@ -45,7 +37,7 @@
         {
             "type": "origins:change_resource",
             "resource": "*:mr/mana",
-            "change": 0
+            "change": -70
             },
                 {
                 "type": "origins:change_resource",
