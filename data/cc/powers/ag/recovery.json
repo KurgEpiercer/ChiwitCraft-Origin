@@ -1,8 +1,8 @@
 {
   "name": "Recovery",
-  "description": "Heal nearby allies and remove negative effects at the cost of mana.",
+  "description": "Heal and cleanse nearby allies, but harm those who emerged from the depths, at the cost of mana.",
   "type": "origins:active_self",
-  "cooldown": 400,
+  "cooldown": 20,
   "hud_render": {
     "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
     "bar_index": 14,
@@ -10,7 +10,7 @@
         "type": "origins:resource",
         "resource": "*:mr/mana",
         "comparison": ">=",
-        "compare_to": 50
+        "compare_to": 0
     }
   },
   "key": {
@@ -45,7 +45,7 @@
         {
             "type": "origins:change_resource",
             "resource": "*:mr/mana",
-            "change": -50
+            "change": 0
             },
                 {
                 "type": "origins:change_resource",
@@ -55,35 +55,43 @@
                 },
       {
         "type": "origins:execute_command",
-        "command": "effect give @e[distance=..7] minecraft:instant_health 1 0 false"
+        "command": "effect give @e[distance=..12,tag=!death] minecraft:instant_health 1 1 false"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:wither"
+        "command": "execute as @e[distance=..12,tag=death] run damage @s[distance=..12,tag=death] 6 minecraft:on_fire"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:darkness"
+        "command": "effect give @e[distance=..12,tag=!death] minecraft:regeneration 12 1 false"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:blindness"
+        "command": "effect clear @e[distance=..12,tag=!death] minecraft:wither"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:nausea"
+        "command": "effect clear @e[distance=..12,tag=!death] minecraft:darkness"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:weakness"
+        "command": "effect clear @e[distance=..12,tag=!death] minecraft:blindness"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:poison"
+        "command": "effect clear @e[distance=..12,tag=!death] minecraft:nausea"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:slowness"
+        "command": "effect clear @e[distance=..12,tag=!death] minecraft:weakness"
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "effect clear @e[distance=..12,tag=!death] minecraft:poison"
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "effect clear @e[distance=..12,tag=!death] minecraft:slowness"
       },
       {
         "type": "origins:execute_command",

@@ -3,6 +3,7 @@
     "description": "A celestial being gifted with healing powers and supportive abilities, inspiring hope in allies.",
     "powers": [
         "cc:ag/recovery",
+        "cc:ag/buff",
         "cc:ag/angelpassive",
         "cc:mr/mana",
         "cc:mr/manaregen",

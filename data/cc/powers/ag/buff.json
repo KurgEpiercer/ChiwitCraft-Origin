@@ -1,16 +1,16 @@
 {
-  "name": "Recovery",
-  "description": "Heal nearby allies and remove negative effects at the cost of mana.",
+  "name": "Angelic Blessing",
+  "description": "Release angelic energy, granting nearby allies strength and speed for a short time.",
   "type": "origins:active_self",
-  "cooldown": 400,
+  "cooldown": 20,
   "hud_render": {
     "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-    "bar_index": 14,
+    "bar_index": 13,
     "condition": {
         "type": "origins:resource",
         "resource": "*:mr/mana",
         "comparison": ">=",
-        "compare_to": 50
+        "compare_to": 0
     }
   },
   "key": {
@@ -29,14 +29,14 @@
       },
       {
         "type": "origins:play_sound",
-        "sound": "minecraft:entity.warden.sonic_boom",
+        "sound": "minecraft:entity.allay.ambient_with_item",
         "category": "master",
         "volume": 2,
         "pitch": 1.5
       },
       {
         "type": "origins:play_sound",
-        "sound": "minecraft:entity.allay.ambient_with_item",
+        "sound": "minecraft:block.brewing_stand.brew",
         "category": "master",
         "volume": 2,
         "pitch": 1.5
@@ -45,7 +45,7 @@
         {
             "type": "origins:change_resource",
             "resource": "*:mr/mana",
-            "change": -50
+            "change": 0
             },
                 {
                 "type": "origins:change_resource",
@@ -55,39 +55,19 @@
                 },
       {
         "type": "origins:execute_command",
-        "command": "effect give @e[distance=..7] minecraft:instant_health 1 0 false"
+        "command": "effect give @e[distance=..7,tag=!death] minecraft:strength 180 1 false"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:wither"
+        "command": "effect give @e[distance=..7,tag=!death] minecraft:speed 180 1 false"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:darkness"
+        "command": "particle dust_color_transition{from_color:[1.0,1.0,1.0],to_color:[0.0,0.84,1.0],scale:1} ~ ~0.3 ~ 7 1 7 0.15 500 force"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:blindness"
-      },
-      {
-        "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:nausea"
-      },
-      {
-        "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:weakness"
-      },
-      {
-        "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:poison"
-      },
-      {
-        "type": "origins:execute_command",
-        "command": "effect clear @e[distance=..7] minecraft:slowness"
-      },
-      {
-        "type": "origins:execute_command",
-        "command": "particle dust_color_transition{from_color:[1.0,0.87,0.0],to_color:[1.0,0.93,0.53],scale:1} ~ ~0.3 ~ 7 0 5 0.15 500 force"
+        "command": "particle end_rod ~ ~0.3 ~ 7 0 7 0.15 100 force"
       }
     ]
   }
