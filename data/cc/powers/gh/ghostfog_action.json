@@ -34,15 +34,15 @@
             },
             {
                 "type": "origins:execute_command",
-                "command": "execute as @a[distance=..15,tag=!ghost] run effect give @s minecraft:slowness 5 3 true"
+                "command": "execute as @a[distance=..15,tag=!death] run effect give @s minecraft:slowness 5 3 true"
             },
             {
                 "type": "origins:execute_command",
-                "command": "execute as @a[distance=..15,tag=!ghost] run effect give @s minecraft:weakness 5 0 true"
+                "command": "execute as @a[distance=..15,tag=!death] run effect give @s minecraft:weakness 5 0 true"
             },
             {
                 "type": "origins:execute_command",
-                "command": "execute as @a[distance=..30,tag=!ghost] run effect give @s minecraft:darkness 5 0 true"
+                "command": "execute as @a[distance=..30,tag=!death] run effect give @s minecraft:darkness 5 0 true"
             },
             {
                 "type": "origins:execute_command",
