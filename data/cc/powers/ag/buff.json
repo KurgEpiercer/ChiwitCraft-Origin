@@ -14,7 +14,7 @@
     }
   },
   "key": {
-    "key": "key.origins.primary_active"
+    "key": "key.origins.secondary_active"
   },
   "animation": {
     "type": "origins:player_animation",
@@ -87,23 +87,7 @@
       },
       {
         "type": "origins:execute_command",
-        "command": "particle dust_color_transition{from_color:[1.0,0.87,0.0],to_color:[1.0,0.93,0.53],scale:1} ~ ~0.3 ~ 7 0 7 0.15 500 force"
-      },
-      {
-        "type": "origins:execute_command",
-        "command": "particle end_rod ~ ~0.3 ~ 7 0 7 0.15 500 force"
-      },
-      {
-        "type": "origins:execute_command",
-        "command": "particle end_rod ~ ~0.3 ~ 0.5 1 0.5 0 100 force"
-      },
-      {
-        "type": "origins:execute_command",
-        "command": "particle poof ~ ~0.3 ~ 7 0 5 0.15 500 force"
-      },
-      {
-        "type": "origins:execute_command",
-        "command": "execute at @s run function cc:recoverycircle"
+        "command": "particle dust_color_transition{from_color:[1.0,0.87,0.0],to_color:[1.0,0.93,0.53],scale:1} ~ ~0.3 ~ 7 0 5 0.15 500 force"
       }
     ]
   }

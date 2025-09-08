@@ -51,12 +51,36 @@
             "command": "execute as @e[name=angelhalo] at @e[tag=angel,limit=1,sort=nearest] run tp @s ~ ~-12 ~"
         }
     },
+    "halo_particle_part1": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @e[name=angelhalo] positioned ^ ^0.1 ^0.38 run particle dust{color:[1.0,0.95,0.4],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
+        }
+    },
     "halo_particle_part2": {
         "type": "origins:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "origins:execute_command",
             "command": "execute at @e[name=angelhalo] positioned ^ ^0.1 ^-0.38 run particle dust{color:[1.0,0.95,0.4],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
+        }
+    },
+    "halo_particle_part3": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @e[name=angelhalo] positioned ^0.38 ^0.1 ^ run particle dust{color:[1.0,0.95,0.4],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
+        }
+    },
+        "halo_particle_part4": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @e[name=angelhalo] positioned ^-0.38 ^0.1 ^ run particle dust{color:[1.0,0.95,0.4],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
         }
     },
     "regeneration": {
