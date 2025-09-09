@@ -73,6 +73,14 @@
         },
         {
             "type": "origins:execute_command",
+            "command": "particle dust_pillar{block_state:{Name:diamond_block}} ~ ~1 ~ 7 0 7 0 200 force"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "particle poof ~ ~0.3 ~ 6 0 6 0.15 500 force"
+        },
+        {
+            "type": "origins:execute_command",
             "command": "execute at @s run function cc:protectioncircle"
         }
         ]

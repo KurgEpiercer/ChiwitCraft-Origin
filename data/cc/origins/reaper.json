@@ -3,7 +3,6 @@
         "cc:mr/mana",
         "cc:mr/manaregen",
         "cc:mr/manaregen_delay",
-        "cc:mr/manaregen_delayreset",
         "cc:mr/manaregen_delaytick"
     ],
     "icon": {
