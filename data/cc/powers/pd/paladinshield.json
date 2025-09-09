@@ -1,0 +1,153 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+
+    "mana_drain_overtime": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:mr/mana",
+            "change": -2
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:pd/paladinshield_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+        "no_jump": {
+            "type": "origins:modify_jump",
+            "modifier": {
+                "amount": -1,
+                "operation": "multiply_base_multiplicative"
+            },
+            "condition": {
+                "type": "origins:power_active",
+                "power": "*:pd/paladinshield_action"
+            }
+        },
+    "regen_delay_setter": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:mr/manaregen_delay",
+            "change": 5
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "*:pd/paladinshield_action"
+        }
+    },
+    "on_toggle_effects": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+            },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.bell.resonate master @s ~ ~ ~ 1 2"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.mace.smash_ground master @s ~ ~ ~ 1 1.3"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:trial_spawner_detection_ominous ~ ~ ~ 0.3 0 0.3 0 60 force"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "execute at @s run function cc:protectioncircle"
+        }
+        ]
+        }
+    },
+    "protection_field": {
+        "type": "origins:action_over_time",
+        "interval": 3,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.beacon.ambient master @s ~ ~ ~ 0.4 1.25"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "effect give @s minecraft:slowness 1 2 true"
+        },
+                {
+            "type": "origins:execute_command",
+            "command": "effect give @s minecraft:resistance 2 1 true"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "effect give @e[tag=!death,distance=..12] minecraft:resistance 2 0 true"
+        }
+        ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:pd/paladinshield_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+        "protection_circle": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "execute at @s run function cc:protectioncircle"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute at @e[distance=..13] run particle dust_color_transition{from_color:[0.44,0.86,1.0],to_color:[1.0,0.98,0.26],scale:1} ~ ~0.07 ~ 0.3 0 0.3 0 40 force"
+            }
+        ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:pd/paladinshield_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "type": "origins:toggle",
+    "name": "Divine Aegis",
+    "description": "Create a protective circle that grants resistance to all inside.",
+    "active_by_default": false,
+    "retain_state": false,
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    }
+}
