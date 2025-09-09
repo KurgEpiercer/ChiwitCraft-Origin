@@ -1,0 +1,25 @@
+{
+    "sound_notify": {
+        "type": "origins:action_over_time",
+        "interval": 40,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute if entity @e[distance=..12,tag=death] run playsound minecraft:entity.experience_orb.pickup master @a ~ ~ ~ 1 1.6"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:pd/paladinshield_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    }
+}

@@ -69,11 +69,11 @@
             "actions": [
         {
             "type": "origins:execute_command",
-            "command": "playsound minecraft:entity.illusioner.cast_spell master @s ~ ~ ~ 1 1"   
+            "command": "playsound minecraft:entity.illusioner.cast_spell master @a[distance=..5] ~ ~ ~ 1 1"   
         },
         {
             "type": "origins:execute_command",
-            "command": "playsound minecraft:entity.phantom.ambient master @s ~ ~ ~ 1 1"
+            "command": "playsound minecraft:entity.phantom.ambient master @a[distance=..5] ~ ~ ~ 1 1"
         },
         {
             "type": "origins:execute_command",
@@ -88,13 +88,13 @@
     },
     "feet_tracking_trail": {
         "type": "origins:action_over_time",
-        "interval": 3,
+        "interval": 2,
         "entity_action": {
             "type": "origins:and",
             "actions": [
         {
             "type": "origins:execute_command",
-            "command": "particle dust_color_transition{from_color:[0.02,0.51,0.55],to_color:[0.0,0.0,0.0],scale:1} ~ ~0.1 ~ 0.35 0 0.35 0 20 force"
+            "command": "particle dust_color_transition{from_color:[0.02,0.51,0.55],to_color:[0.0,0.0,0.0],scale:1} ~ ~0.1 ~ 0.2 0 0.2 0 20 force"
         },
         {
             "type": "origins:execute_command",
