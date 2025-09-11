@@ -1,0 +1,1 @@
+scoreboard objectives add cc_toggle_temp dummy
