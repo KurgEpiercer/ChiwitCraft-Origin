@@ -2,8 +2,10 @@
     "name": "Paladin",
     "description": "A holy warrior who excels in defense and protection, shielding allies from harm.",
     "powers": [
+        "cc:pd/paladinmark",
         "cc:pd/paladinshield",
         "cc:pd/paladinshield_action",
+        "cc:pd/paladinwarp",
         "cc:pd/paladinpassive",
         "cc:mr/mana",
         "cc:mr/manaregen",

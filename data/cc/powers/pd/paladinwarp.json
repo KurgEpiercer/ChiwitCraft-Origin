@@ -1,0 +1,72 @@
+{
+    "name": "Divine Intervention",
+    "description": "Teleport to all allies you have marked to you.",
+    "type": "origins:active_self",
+    "key": {
+        "key": "key.origins.secondary_active",
+        "continuous": true
+    },
+    "cooldown": 20,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/resource_bar.png",
+        "bar_index": 5
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "*:mr/mana",
+                "comparison": ">=",
+                "compare_to": 60
+            },
+            {
+                "type": "origins:command",
+                "command": "execute if entity @a[tag=paladin_marked]",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        ]
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "execute at @e[tag=paladin_marked] run particle dust_color_transition{from_color:[0.44,0.86,1.0],to_color:[1.0,0.98,0.26],scale:1} ~ ~0.07 ~ 0.3 0.8 0.3 0 40 force"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute at @e[tag=paladin_marked] run particle end_rod ~ ~0.07 ~ 0.4 0.8 0.4 0 40 force"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute at @e[tag=paladin_marked] run playsound minecraft:entity.enderman.teleport master @a ~ ~ ~ 1 1.7"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute at @s run playsound minecraft:entity.enderman.teleport master @a ~ ~ ~ 2 1.7"
+            },
+            {
+            "type": "origins:execute_command",
+            "command": "tp @e[tag=paladin_marked] @s"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "tag @a[tag=paladin_marked] remove paladin_marked"
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "*:mr/mana",
+                "change": -60
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "*:mr/manaregen_delay",
+                "operation": "set",
+                "change": 5
+            }
+        ]
+    }
+}

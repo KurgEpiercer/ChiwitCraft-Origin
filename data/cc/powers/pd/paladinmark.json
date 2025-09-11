@@ -1,0 +1,30 @@
+{
+        "name": "Divine Protection",
+        "description": "Mark a player to teleport them to you when they are in danger.",
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 5
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 5,
+            "block": true,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "any",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "function cc:paladin/markplayer"
+            }
+        }
+    }
+}
