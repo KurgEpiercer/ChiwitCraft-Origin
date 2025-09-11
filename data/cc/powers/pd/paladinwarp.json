@@ -24,7 +24,7 @@
             {
                 "type": "origins:command",
                 "command": "execute if entity @a[tag=paladin_marked]",
-                "comparison": "==",
+                "comparison": ">=",
                 "compare_to": 1
             }
         ]

@@ -96,12 +96,20 @@
             "command": "execute at @e[name=paladinhalo] positioned ^-0.38 ^0.1 ^ run particle dust{color:[0.6,0.85,1.0],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
         }
     },
-    "regeneration": {
+    "resistance": {
         "type": "origins:action_over_time",
         "interval": 5,
         "entity_action": {
             "type": "origins:execute_command",
             "command": "effect give @s resistance 2 0 true"
+        }
+    },
+    "slowness": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "effect give @s slowness 2 0 true"
         }
     }
 }
