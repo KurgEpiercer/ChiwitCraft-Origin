@@ -1,0 +1,29 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 1,
+    "entity_action": {
+    "type": "origins:and",
+    "actions": [
+        {
+        "type": "origins:execute_command",
+        "command": "tag @s add paladin_disabled"
+        },
+        {
+        "type": "origins:execute_command",
+        "command": "execute as @a[distance=..15] run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 1"
+        },
+        {
+        "type": "origins:execute_command",
+        "command": "particle dust_color_transition{from_color:[1.0,0.5,0.2],to_color:[0.32,0.83,1.0],scale:1} ~ ~1 ~ 0.3 0.3 0.3 0 30 force"
+        }
+    ]
+    },
+    "condition": {
+    "type": "origins:and",
+    "conditions": [
+        { "type": "origins:power_active", "power": "cc:pd/paladinshield_action" },
+        { "type": "origins:resource", "resource": "cc:mr/mana", "comparison": "<=", "compare_to": 0 }
+    ]
+    },
+    "hidden": true
+}

@@ -1,0 +1,26 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 1,
+    "entity_action": {
+    "type": "origins:change_resource",
+    "resource": "cc:gh/gi/invis_blocker",
+    "operation": "set",
+    "change": 0
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:power_active",
+                "power": "*:gh/ghostinvis_action"
+            },
+            {
+            "type": "origins:resource",
+            "resource": "cc:mr/mana",
+            "comparison": ">",
+            "compare_to": 0
+            }
+        ]
+    },
+    "hidden": true
+}

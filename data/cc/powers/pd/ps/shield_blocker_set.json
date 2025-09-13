@@ -1,0 +1,11 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 5,
+    "entity_action": {
+    "type": "origins:change_resource",
+    "resource": "cc:pd/ps/shield_blocker",
+    "operation": "set",
+    "change": 1
+    },
+    "hidden": true
+}

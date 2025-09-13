@@ -32,11 +32,24 @@
                 "amount": -1,
                 "operation": "multiply_base_multiplicative"
             },
-            "condition": {
-                "type": "origins:power_active",
-                "power": "*:pd/paladinshield_action"
-            }
-        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "cc:pd/ps/shield_blocker",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
     "regen_delay_setter": {
         "type": "origins:action_over_time",
         "interval": 20,

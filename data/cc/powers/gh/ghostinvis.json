@@ -9,8 +9,10 @@
             "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:power_active",
-                    "power": "*:gh/ghostinvis_action"
+                    "type": "origins:resource",
+                    "resource": "cc:gh/gi/invis_blocker",
+                    "comparison": "==",
+                    "compare_to": 0
                 },
                 {
                     "type": "origins:resource",

@@ -7,5 +7,11 @@
     "key": {
         "key": "key.origins.primary_active",
         "continuous": false
+    },
+    "condition": {
+        "type": "origins:command",
+        "command": "execute unless entity @s[tag=paladin_disabled]",
+        "comparison": "==",
+        "compare_to": 1
     }
 }

@@ -1,10 +1,18 @@
 {
+    "name": "Ghost",
+    "description": "A Spirit capable of going invisible and moving faster than others. The only downside is its fragility.",
     "powers": [
         "cc:gh/ghostinvis",
         "cc:gh/ghostinvis_action",
         "cc:gh/ghostfog_action",
         "cc:gh/ghostpassive",
         "cc:gh/ghosthealthdecrease",
+        "cc:gh/ghostinvis_forcedisable",
+        "cc:gh/ghostinvis_reenable",
+        "cc:gh/gi/invis_blocker",
+        "cc:gh/gi/invis_blocker_set",
+        "cc:gh/gi/invis_blocker_reset",
+        "cc:gh/gi/invis_detect",
         "cc:mr/mana",
         "cc:mr/manaregen",
         "cc:mr/manaregen_delay",
@@ -14,7 +22,5 @@
         "id": "minecraft:soul_lantern"
     },
     "order": 2,
-    "impact": 1,
-    "name": "Ghost",
-    "description": "A Spirit capable of going invisible and moving faster than others. The only downside is its fragility."
+    "impact": 1
 }

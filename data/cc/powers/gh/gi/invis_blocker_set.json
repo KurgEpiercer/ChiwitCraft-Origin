@@ -1,0 +1,17 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 5,
+    "entity_action": {
+    "type": "origins:change_resource",
+    "resource": "cc:gh/gi/invis_blocker",
+    "operation": "set",
+    "change": 1
+    },
+    "condition": {
+    "type": "origins:resource",
+    "resource": "cc:mr/mana",
+    "comparison": "<=",
+    "compare_to": 0
+    },
+    "hidden": true
+}

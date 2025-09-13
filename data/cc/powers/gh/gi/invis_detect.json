@@ -1,0 +1,16 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 1,
+    "entity_action": {
+    "type": "origins:change_resource",
+    "resource": "cc:gh/gi/invis_blocker",
+    "operation": "set",
+    "change": 1
+    },
+    "condition": {
+        "type": "origins:power_active",
+        "power": "*:gh/ghostinvis_action",
+        "inverted": true
+    },
+    "hidden": true
+}

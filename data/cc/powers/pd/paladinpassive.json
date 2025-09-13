@@ -31,71 +31,21 @@
             "permission_level": 4
         }
     },
-    "kill_halo": {
-        "type": "origins:action_on_callback",
-        "entity_action_lost": {
-            "type": "origins:execute_command",
-            "command": "kill @e[name=paladinhalo,limit=1,sort=nearest]",
-            "permission_level": 4
-        }
-    },
-
-    "summon_halo": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "summon armor_stand ~ ~-12 ~ {CustomName:'{\"text\":\"paladinhalo\"}',NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}",
-            "permission_level": 4
-        }
-    },
-    "spin_halo": {
+    "paladin_halo_summon": {
         "type": "origins:action_over_time",
         "interval": 2,
         "entity_action": {
+            "type": "origins:and",
+            "actions": [
+        {
             "type": "origins:execute_command",
-            "command": "execute as @e[name=paladinhalo] at @s run tp @s ~ ~ ~ ~20 ~"
+            "command": "execute at @s positioned ~ ~2.45 ~ run function cc:halo/paladinhalo_particle",
+            "permission_level": 4
+        }
+            ]
         }
     },
-    "tp_halo_player": {
-        "type": "origins:action_over_time",
-        "interval": 1,
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute as @e[name=paladinhalo] at @e[tag=paladin,limit=1,sort=nearest] run tp @s ~ ~-12 ~"
-        }
-    },
-    "halo_particle_part1": {
-        "type": "origins:action_over_time",
-        "interval": 1,
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute at @e[name=paladinhalo] positioned ^ ^0.1 ^-0.38 run particle dust{color:[0.6,0.85,1.0],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
-        }
-    },
-    "halo_particle_part2": {
-        "type": "origins:action_over_time",
-        "interval": 1,
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute at @e[name=paladinhalo] positioned ^ ^0.1 ^0.38 run particle dust{color:[0.6,0.85,1.0],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
-        }
-    },
-    "halo_particle_part3": {
-        "type": "origins:action_over_time",
-        "interval": 1,
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute at @e[name=paladinhalo] positioned ^0.38 ^0.1 ^ run particle dust{color:[0.6,0.85,1.0],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
-        }
-    },
-        "halo_particle_part4": {
-        "type": "origins:action_over_time",
-        "interval": 1,
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute at @e[name=paladinhalo] positioned ^-0.38 ^0.1 ^ run particle dust{color:[0.6,0.85,1.0],scale:0.5} ~ ~14.3 ~ 0 0 0 0 3 force @a"
-        }
-    },
+
     "resistance": {
         "type": "origins:action_over_time",
         "interval": 5,

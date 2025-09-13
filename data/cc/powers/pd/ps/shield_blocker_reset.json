@@ -1,0 +1,26 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 1,
+    "entity_action": {
+    "type": "origins:change_resource",
+    "resource": "cc:pd/ps/shield_blocker",
+    "operation": "set",
+    "change": 0
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:power_active",
+                "power": "*:pd/paladinshield_action"
+            },
+            {
+            "type": "origins:resource",
+            "resource": "cc:mr/mana",
+            "comparison": ">",
+            "compare_to": 0
+            }
+        ]
+    },
+    "hidden": true
+}

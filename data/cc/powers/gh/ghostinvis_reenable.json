@@ -1,16 +1,15 @@
 {
     "type": "origins:action_over_time",
-    "hidden": true,
     "interval": 20,
     "entity_action": {
-    "type": "origins:change_resource",
-    "resource": "*:mr/manaregen_delay",
-    "change": -1
+    "type": "origins:execute_command",
+    "command": "tag @s remove ghost_disabled"
     },
     "condition": {
     "type": "origins:resource",
-    "resource": "*:mr/manaregen_delay",
+    "resource": "cc:mr/mana",
     "comparison": ">",
     "compare_to": 0
-    }
+    },
+    "hidden": true
 }

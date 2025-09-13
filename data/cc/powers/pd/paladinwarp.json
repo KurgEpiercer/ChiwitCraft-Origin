@@ -42,11 +42,11 @@
             },
             {
                 "type": "origins:execute_command",
-                "command": "execute at @e[tag=paladin_marked] run playsound minecraft:entity.enderman.teleport master @a ~ ~ ~ 1 1.7"
+                "command": "execute at @e[tag=paladin_marked] run playsound minecraft:entity.illusioner.mirror_move master @a ~ ~ ~ 1 1"
             },
             {
                 "type": "origins:execute_command",
-                "command": "execute at @s run playsound minecraft:entity.enderman.teleport master @a ~ ~ ~ 2 1.7"
+                "command": "execute at @s run playsound minecraft:entity.illusioner.mirror_move master @a ~ ~ ~ 2 1"
             },
             {
             "type": "origins:execute_command",
