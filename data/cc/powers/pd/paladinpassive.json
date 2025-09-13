@@ -33,7 +33,7 @@
     },
     "paladin_halo_summon": {
         "type": "origins:action_over_time",
-        "interval": 2,
+        "interval": 3,
         "entity_action": {
             "type": "origins:and",
             "actions": [
