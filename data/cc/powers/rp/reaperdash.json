@@ -1,0 +1,105 @@
+{
+    "type": "origins:multiple",
+    "name": "Rending Step",
+    "description": "Dash forward with deadly force, striking any enemy in your path. Timing is everything—hit quickly to reclaim your strength.",
+
+    "execution_dash": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 4
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:dmr/dmana",
+                    "change": -15
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wither.shoot master @a[distance=..5] ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle smoke ~ ~ ~ 0.5 0.5 0.5 0 50 force"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust_color_transition{from_color:[0.0,0.0,0.0],to_color:[0.7,0.0,0.0],scale:1} ~ ~1 ~ 0.5 0.5 0.5 0 60 force"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s anchored eyes positioned ^ ^ ^5 if block ~ ~ ~ air run tp @s ~ ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @a[distance=..2,tag=!death] minecraft:wither 2 1 true"
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "*:rp/rpc/dash_refund_window",
+                    "value": 2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:dmr/dmana",
+            "comparison": ">=",
+            "compare_to": 15
+        }
+    },
+
+    "execution_dash_refund": {
+        "type": "origins:action_on_hit",
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": ">=",
+            "compare_to": 6
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:player"
+            }
+        },
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "*:dmr/dmana",
+                "change": 8
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:rp/rpc/dash_refund_window",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+
+    "execution_dash_refund_timer": {
+        "type": "origins:action_over_time",
+        "interval": 15,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:rp/rpc/dash_refund_window",
+            "change": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:rp/rpc/dash_refund_window",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    }
+}

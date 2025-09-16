@@ -67,6 +67,14 @@
         {
             "type": "origins:execute_command",
             "command": "effect give @a[distance=..5,tag=!death] minecraft:darkness 2 1 true"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "effect give @a[distance=..1,tag=!death] minecraft:blindness 2 1 true"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "effect give @a[distance=..5,tag=!death] minecraft:slowness 1 0 true"
         }
     ]
     },
@@ -117,7 +125,7 @@
             "type": "origins:actor_action",
             "action": {
                 "type": "origins:heal",
-                "amount": 1
+                "amount": 2
             }
         },
         "condition": {

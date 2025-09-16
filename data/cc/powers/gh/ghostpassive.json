@@ -17,14 +17,6 @@
             "command": "effect give @s speed 2 0 true"
         }
     },
-    "weakness": {
-        "type": "origins:action_over_time",
-        "interval": 5,
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "effect give @s weakness 2 0 true"
-        }
-    },
     "ghost_tag": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {

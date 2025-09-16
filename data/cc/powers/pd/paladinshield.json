@@ -120,6 +120,10 @@
         {
             "type": "origins:execute_command",
             "command": "effect give @e[tag=!death,distance=..12] minecraft:resistance 2 0 true"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "effect give @e[tag=!death,distance=..12] minecraft:strength 1 0 true"
         }
         ]
         },

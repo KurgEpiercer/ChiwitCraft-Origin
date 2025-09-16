@@ -15,5 +15,5 @@
         "comparison": "==",
         "compare_to": 1
     },
-  "hidden": false
+  "hidden": true
 }

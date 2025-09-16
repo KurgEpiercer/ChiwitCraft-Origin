@@ -2,6 +2,8 @@
     "powers": [
         "cc:rp/reaperzone_action",
         "cc:rp/reaperzone",
+        "cc:rp/reaperdash",
+        "cc:rp/rpc/dash_refund_window",
         "cc:rp/reaperpassive",
         "cc:rp/rpc/reapercolor_resource",
         "cc:rp/rpc/reapercolor_active",

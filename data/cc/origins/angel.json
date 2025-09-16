@@ -5,6 +5,7 @@
         "cc:ag/recovery",
         "cc:ag/buff",
         "cc:ag/angelpassive",
+        "cc:ag/angelhealthdecrease",
         "cc:mr/mana",
         "cc:mr/manaregen",
         "cc:mr/manaregen_delay",

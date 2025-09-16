@@ -53,13 +53,5 @@
             "type": "origins:execute_command",
             "command": "effect give @s resistance 2 0 true"
         }
-    },
-    "slowness": {
-        "type": "origins:action_over_time",
-        "interval": 5,
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "effect give @s slowness 2 0 true"
-        }
     }
 }

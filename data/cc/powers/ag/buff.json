@@ -11,7 +11,7 @@
         "type": "origins:resource",
         "resource": "*:mr/mana",
         "comparison": ">=",
-        "compare_to": 90
+        "compare_to": 100
     },
   "key": {
     "key": "key.origins.secondary_active"
@@ -47,11 +47,11 @@
                 },
       {
         "type": "origins:execute_command",
-        "command": "effect give @e[distance=..7,tag=!death] minecraft:strength 180 1 false"
+        "command": "effect give @e[distance=..7,tag=!death] minecraft:strength 180 0 false"
       },
       {
         "type": "origins:execute_command",
-        "command": "effect give @e[distance=..7,tag=!death] minecraft:speed 180 1 false"
+        "command": "effect give @e[distance=..7,tag=!death] minecraft:speed 180 0 false"
       },
       {
         "type": "origins:execute_command",
