@@ -1,0 +1,10 @@
+{
+    "name": "Human",
+    "description": "A normal human being.",
+
+    "icon": {
+        "id": "minecraft:player_head"
+    },
+    "order": 2,
+    "impact": 1
+}

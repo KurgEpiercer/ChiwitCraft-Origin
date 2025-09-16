@@ -3,7 +3,8 @@
         "cc:ghost",
         "cc:reaper",
         "cc:angel",
-        "cc:paladin"
+        "cc:paladin",
+        "cc:human"
     ],
     "replace": true,
     "loading_priority": 1
