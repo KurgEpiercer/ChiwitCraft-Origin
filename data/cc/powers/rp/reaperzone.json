@@ -1,0 +1,128 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+
+    "mana_drain_overtime": {
+        "type": "origins:action_over_time",
+        "interval": 8,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:dmr/dmana",
+            "change": -2
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:rp/reaperzone_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:dmr/dmana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "on_toggle_effects": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+            },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.wither.ambient master @a[distance=..15] ~ ~ ~ 1 0"   
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.wither.shoot master @a[distance=..5] ~ ~ ~ 1 0"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "particle dust_color_transition{from_color:[0.0,0.0,0.0],to_color:[0.7,0.0,0.0],scale:1} ~ ~1 ~ 0.5 0.5 0.5 0 60 force"
+        }
+        ]
+        }
+    },
+    "reaper_zone": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+        {
+            "type": "origins:execute_command",
+            "command": "particle dust_color_transition{from_color:[0.0,0.0,0.0],to_color:[0.7,0.0,0.0],scale:1} ~ ~0.1 ~ 0.35 0 0.35 0 50 force"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "execute at @s anchored eyes positioned ^0.12 ^-0.05 ^0.32 run particle dust{color:[0.7,0.0,0.0],scale:0.5} ~ ~ ~ 0 0 0 0 10 force @a[distance=2..]"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "effect give @a[distance=..5,tag=!death] minecraft:darkness 2 1 true"
+        }
+    ]
+    },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:rp/reaperzone_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:dmr/dmana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }  
+            ]
+        }
+    },
+    "reaper_color": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:rp/rpc/reapercolor_resource",
+            "change": 1
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "*:rp/reaperzone_action"
+        }
+    },
+    "life_syphon": {
+        "type": "origins:action_on_hit",
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:player"
+            }
+        },
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:heal",
+                "amount": 1
+            }
+        },
+        "condition": {
+                    "type": "origins:power_active",
+                    "power": "*:rp/reaperzone_action"
+        }
+    }
+}

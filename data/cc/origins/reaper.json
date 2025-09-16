@@ -1,15 +1,21 @@
 {
     "powers": [
-        "cc:mr/mana",
-        "cc:mr/manaregen",
-        "cc:mr/manaregen_delay",
-        "cc:mr/manaregen_delaytick"
+        "cc:rp/reaperzone_action",
+        "cc:rp/reaperzone",
+        "cc:rp/reaperpassive",
+        "cc:rp/rpc/reapercolor_resource",
+        "cc:rp/rpc/reapercolor_active",
+        "cc:rp/rpc/reapercolor_tick",
+        "cc:rp/reaperzone_forcedisable",
+        "cc:rp/reaperzone_reenable",
+        "cc:dmr/dmana",
+        "cc:dmr/dmanaregen"
     ],
     "icon": {
         "id": "minecraft:redstone"
     },
     "order": 3,
-    "impact": 2,
+    "impact": 3,
     "name": "Reaper",
-    "description": "A spectral being that can vanish and move quickly, but is more vulnerable to harm."
+    "description": "The embodiment of Death itself, the fearful one."
 }

@@ -1,0 +1,15 @@
+{
+    "type": "origins:action_over_time",
+    "hidden": true,
+    "interval": 1,
+    "entity_action": {
+    "type": "origins:change_resource",
+    "resource": "*:rp/rpc/reapercolor_resource",
+    "change": -1
+    },
+    "condition": {
+        "type": "origins:power_active",
+        "power": "*:rp/reaperzone_action",
+        "inverted": true
+    }
+}

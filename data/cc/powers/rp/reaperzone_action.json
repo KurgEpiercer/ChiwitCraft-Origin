@@ -1,0 +1,17 @@
+{
+    "type": "origins:toggle",
+    "name": "Death Zone",
+    "description": "Create a zone around you that blinds and weakens enemies inside.",
+    "active_by_default": false,
+    "retain_state": false,
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    },
+    "condition": {
+        "type": "origins:command",
+        "command": "execute unless entity @s[tag=reaper_disabled]",
+        "comparison": "==",
+        "compare_to": 1
+    }
+}

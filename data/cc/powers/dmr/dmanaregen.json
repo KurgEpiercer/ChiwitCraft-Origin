@@ -1,0 +1,25 @@
+{
+    "type": "origins:action_on_hit",
+    "damage_condition": {
+    "type": "origins:amount",
+    "comparison": ">=",
+    "compare_to": 6
+    },
+    "bientity_condition": {
+    "type": "origins:target_condition",
+    "condition": {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:player"
+    }
+    },
+    "bientity_action": {
+    "type": "origins:actor_action",
+    "action": {
+        "type": "origins:change_resource",
+        "resource": "cc:dmr/dmana",
+        "change": 2
+        }
+    },
+    "hidden": true,
+    "cooldown": 5
+}

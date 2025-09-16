@@ -1,0 +1,19 @@
+{
+  "type": "origins:active_self",
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  },
+    "entity_action": {
+      "type": "origins:change_resource",
+      "resource": "cc:rp/rpc/reapercolor_resource",
+      "change": 1
+    },
+    "condition": {
+        "type": "origins:command",
+        "command": "execute unless entity @s[tag=reaper]",
+        "comparison": "==",
+        "compare_to": 1
+    },
+  "hidden": false
+}

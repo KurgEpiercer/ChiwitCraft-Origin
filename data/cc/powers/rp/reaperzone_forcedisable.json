@@ -1,0 +1,30 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 1,
+    "entity_action": {
+    "type": "origins:and",
+    "actions": [
+        {   
+            "type": "origins:execute_command", 
+            "command": "tag @s add reaper_disabled"
+        },
+        {
+            "type": "origins:execute_command", 
+            "command": "execute as @a[distance=..5] run playsound minecraft:entity.phantom.ambient master @s ~ ~ ~ 1 1.7"
+        },
+        {
+            "type": "origins:execute_command", 
+            "command": "particle dust_color_transition{from_color:[0.96,0.0,0.0],to_color:[0.0,0.0,0.0],scale:1} ~ ~1 ~ 0.3 0.3 0.3 0 30 force"
+        }
+    ]
+    },
+    "condition": {
+    "type": "origins:and",
+    "conditions": [
+        { "type": "origins:power_active", "power": "cc:rp/reaperzone_action" },
+        { "type": "origins:resource", "resource": "cc:dmr/dmana", "comparison": "<=", "compare_to": 0 }
+        ]
+    },
+    "hidden": true
+}
+
