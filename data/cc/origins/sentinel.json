@@ -1,0 +1,25 @@
+{
+    "name": "Sentinel",
+    "description": "A Sacred Archer",
+    
+    "powers": [
+        "cc:sn/sentinelpassive",
+        "cc:sn/scharge",
+        "cc:sn/strigger",
+        "cc:sn/schargedecrease",
+        "cc:sn/scheck",
+        "cc:sn/sdisablenomove",
+        "cc:sn/sentinelshot",
+        "cc:sn/sentinelshot_action",
+        "cc:mr/mana",
+        "cc:mr/manaregen",
+        "cc:mr/manaregen_delay",
+        "cc:mr/manaregen_delaytick"
+    ],
+
+    "icon": {
+        "id": "minecraft:spectral_arrow"
+    },
+    "order": 5,
+    "impact": 3
+}

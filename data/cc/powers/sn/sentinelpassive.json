@@ -1,0 +1,56 @@
+{
+    "type": "origins:multiple",
+    "hidden": false,
+
+    "name": "Swiftstride Presence",
+    "description": "You have a halo above your head that increases your speed",
+
+    "angel_tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add sentinel",
+            "permission_level": 4
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove sentinel",
+            "permission_level": 4
+        }
+    },
+    "life_tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add life",
+            "permission_level": 4
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove life",
+            "permission_level": 4
+        }
+    },
+    "angel_halo_summon": {
+        "type": "origins:action_over_time",
+        "interval": 3,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+        {
+            "type": "origins:execute_command",
+            "command": "execute at @s positioned ~ ~2.45 ~ run function cc:halo/sentinelhalo_particle",
+            "permission_level": 4
+        }
+            ]
+        }
+    },
+    "regeneration": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "effect give @s speed 2 0 true"
+        }
+    }
+}

@@ -1,0 +1,443 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+
+    "mana_drain_overtime": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:mr/mana",
+            "change": -5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/scharge",
+                    "comparison": "<",
+                    "compare_to": 100
+                }
+            ]
+        }
+    },
+    "regen_delay_setter": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:mr/manaregen_delay",
+            "change": 5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action"
+                }
+            ]
+        }
+    },
+    "sentinel_charge": {
+        "type": "origins:action_over_time",
+        "interval": 3,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:sn/scharge",
+            "operation": "add",
+            "change": 1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "action_on_activate": {
+        "type": "origins:active_self",
+        "key": "key.origins.secondary_active",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust_color_transition{from_color:[0.68,0.0,1.0],to_color:[1.0,1.0,1.0],scale:1} ~ ~1 ~ 0.35 0.45 0.35 0 50"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "emotes play sentinelcharging @s true"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.charge master @a[distance=..30] ~ ~ ~ 2 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "attribute @s minecraft:generic.movement_speed modifier add no_move -10 add_value"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "attribute @s minecraft:generic.jump_strength modifier add no_jump -10 add_value"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:sn/scheck",
+                    "change": 1
+                }
+            ]
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "*:sn/scheck",
+                "comparison": "==",
+                "compare_to": 0
+            }
+            ]
+        }
+    },
+    "action_on_deactivate": {
+        "type": "origins:active_self",
+        "key": "key.origins.secondary_active",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust_color_transition{from_color:[0.68,0.0,1.0],to_color:[1.0,1.0,1.0],scale:1} ~ ~1 ~ 0.35 0.45 0.35 0 50"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "emotes stop @s"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:sn/strigger",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.beacon.deactivate master @a[distance=..30] ~ ~ ~ 2 0.7"
+                }
+            ]
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "*:sn/scheck",
+                "comparison": "==",
+                "compare_to": 1
+            }
+            ]
+        }
+    },
+    "action_over_time": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust_color_transition{from_color:[0.68,0.0,1.0],to_color:[1.0,1.0,1.0],scale:1} ~ ~1 ~ 0.35 0.45 0.35 0 50"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ~ ~1 ~ 1 1 1 0 10 force"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/scharge",
+                    "comparison": "<",
+                    "compare_to": 100
+                }
+            ]
+        }
+    },
+    "fully_charged_aot": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ~ ~1 ~ 1 1 1 0 5 force"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:electric_spark ~ ~1 ~ 1 1 1 150 20"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s positioned ~ ~1.25 ~ positioned ^ ^ ^0.1 run function cc:sentinelbow"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s positioned ~ ~1.25 ~ positioned ^ ^ ^0.7 run particle minecraft:portal ~ ~ ~ 0 0 0 1 25 force @a[distance=2..]"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/scharge",
+                    "comparison": ">=",
+                    "compare_to": 100
+                }
+            ]
+        }
+    },
+    "fully_charged_faster_aot": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:electric_spark ~ ~1 ~ 0.85 1 0.85 125 20"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/scharge",
+                    "comparison": ">=",
+                    "compare_to": 100
+                }
+            ]
+        }
+    },
+    "fully_charged_notice": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.evoker.prepare_summon master @s ~ ~ ~ 10 2"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/scharge",
+                    "comparison": "==",
+                    "compare_to": 99
+                }
+            ]
+        }
+    },
+    "fully_charged_earlier_notice": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "emotes play sentinelcharged @s true"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:sn/strigger",
+                    "change": 1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/scharge",
+                    "comparison": "==",
+                    "compare_to": 87
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/strigger",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "fully_charged_action": {
+        "type": "origins:active_self",
+        "key": "key.origins.secondary_active",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust_color_transition{from_color:[1.0,1.0,1.0],to_color:[0.68,0.0,1.0],scale:1} ~ ~1 ~ 0.35 0.45 0.35 0 50"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @s positioned ~ ~1.5 ~ run playsound minecraft:item.trident.thunder master @a[distance=..30] ~ ~ ~ 30 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s positioned ~ ~1.25 ~ positioned ^ ^ ^0.7 run function cc:sentinelshot"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "emotes stop @s"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:sn/scharge",
+                    "change": -100
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 30,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 6,
+                            "damage_type": "minecraft:sonic_boom",
+                            "bypass_armor": true
+                        }
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/scharge",
+                    "comparison": ">=",
+                    "compare_to": 100
+                }
+            ]
+        }
+    },
+    "shoot": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute positioned ~ ~1 ~ run function cc:sentinel/shot_summon"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/scharge",
+                    "comparison": ">=",
+                    "compare_to": 100
+                }
+            ]
+        },
+        "cooldown": 10,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 11
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+    "loop": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute as @e[tag=shot] at @e[tag=shot] run function cc:sentinel/shot_loop"
+        }
+    },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:sn/sentinelshot_action",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:sn/scharge",
+                    "comparison": ">=",
+                    "compare_to": 100
+                }
+            ]
+        }
+}

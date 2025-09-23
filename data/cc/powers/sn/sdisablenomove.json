@@ -1,0 +1,39 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 1,
+    "hidden": true,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "attribute @s minecraft:generic.movement_speed modifier remove no_move"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "attribute @s minecraft:generic.jump_strength modifier remove no_jump"
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "*:sn/scheck",
+                "change": -1
+            }
+        ]
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "*:sn/scheck",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:sn/sentinelshot_action",
+                "inverted": true
+            }
+        ]
+    }
+}

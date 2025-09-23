@@ -4,6 +4,7 @@
         "cc:reaper",
         "cc:angel",
         "cc:paladin",
+        "cc:sentinel",
         "cc:human"
     ],
     "replace": true,
