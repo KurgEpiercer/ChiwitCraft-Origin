@@ -156,10 +156,6 @@
             {
                 "type": "origins:execute_command",
                 "command": "execute at @e[distance=..13,tag=!death] run particle dust_color_transition{from_color:[0.44,0.86,1.0],to_color:[1.0,0.98,0.26],scale:1} ~ ~0.07 ~ 0.3 0 0.3 0 40 force"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute if entity @e[distance=..12,tag=death] run effect give @s minecraft:glowing 1 0 true"
             }
         ]
         },
