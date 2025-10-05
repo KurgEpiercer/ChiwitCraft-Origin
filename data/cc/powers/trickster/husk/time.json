@@ -17,9 +17,9 @@
         "entity_action": {
             "type": "origins:and",
             "actions": [
-                 {
-                    "type":"origins:execute_command",
-                    "command":"team join husk.trickster"
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join husk.trickster"
                 },
                 {
                     "type": "origins:apply_effect",
@@ -80,12 +80,16 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:remove_power",
-                    "power": "*:*"
+                    "type": "origins:delay",
+                    "ticks": 7,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "kill @s"
+                    }
                 },
                 {
                     "type": "origins:delay",
-                    "ticks": 10,
+                    "ticks": 5,
                     "action": {
                         "type": "origins:execute_command",
                         "command": "kill @s"
