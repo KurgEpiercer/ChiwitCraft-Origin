@@ -1,0 +1,81 @@
+{
+    "name": "Judgement Wave",
+    "description": "",
+    "type": "origins:active_self",
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    },
+    "cooldown": 50,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 5,
+        "order": 1
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:area_of_effect",
+                "radius": 7,
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:add_velocity",
+                            "z": 1,
+                            "y": 0.5,
+                            "set": true
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.ender_dragon.flap master @a ~ ~ ~ 1 0.5"
+            },
+            {
+                "type": "origins:area_of_effect",
+                "radius": 7,
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:apply_effect",
+                                "effects": [
+                                    {
+                                        "id": "minecraft:slowness",
+                                        "duration": 85,
+                                        "amplifier": 2,
+                                        "is_ambient": false,
+                                        "show_particles": false,
+                                        "show_icon": true
+                                    },
+                                    {
+                                        "id": "minecraft:mining_fatigue",
+                                        "duration": 85,
+                                        "amplifier": 2,
+                                        "is_ambient": false,
+                                        "show_particles": false,
+                                        "show_icon": true
+                                    },
+                                    {
+                                        "id": "minecraft:weakness",
+                                        "duration": 80,
+                                        "amplifier": 0,
+                                        "is_ambient": false,
+                                        "show_particles": false,
+                                        "show_icon": true
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

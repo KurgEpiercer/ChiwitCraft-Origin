@@ -1,0 +1,23 @@
+{
+  "hidden": true,
+  "type": "origins:multiple",
+  "damage_low_six": {
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+      "type": "origins:amount",
+      "comparison": "<",
+      "compare_to": 6.0
+    },
+    "modifier": {
+      "id": "*:*",
+      "operation": "set_total",
+      "amount": 0
+    },
+    "condition": {
+      "type": "origins:resource",
+      "resource": "*:trickster/select_mode_red",
+      "comparison": "==",
+      "compare_to": 1
+    }
+  }
+}

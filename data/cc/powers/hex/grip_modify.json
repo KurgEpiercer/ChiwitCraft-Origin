@@ -1,0 +1,109 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "bar_tick_action": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3600,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "remove_tick": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_bar_tick_action",
+            "change": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_bar_tick_action",
+            "comparison": "!=",
+            "compare_to": 3600
+        }
+    },
+    "remove_power": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s cc:hex/grip_modify"
+        },
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_bar_tick_action",
+                    "comparison": "==",
+                    "compare_to": 3600
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": "==",
+                    "compare_to": 0.0
+                }
+            ]
+        }
+    },
+    "modify_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "no_move",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_value",
+            "amount": -10
+        }
+    },
+    "modify_jump": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "no_jump",
+            "attribute": "minecraft:generic.jump_strength",
+            "operation": "add_value",
+            "amount": -10
+        }
+    },
+    "prevent_block_place": {
+        "type": "origins:prevent_block_place"
+    },
+    "prevent_item_pickup": {
+        "type": "origins:prevent_item_pickup"
+    },
+    "effect_and_particle": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "execute_command",
+                    "command": "/particle dust_color_transition{from_color:[1.0,1.0,1.0],to_color:[0.78,0.78,0.78],scale:1} ~ ~0.2 ~ 0.24 0 0.24 0 5 force @s"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "id": "minecraft:weakness",
+                            "duration": 10,
+                            "amplifier": 10,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "id": "minecraft:mining_fatigue",
+                            "duration": 10,
+                            "amplifier": 10,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

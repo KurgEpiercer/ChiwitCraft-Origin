@@ -1,0 +1,20 @@
+{
+    "name": "Trickster",
+    "description": "none description",
+    "powers": [
+        "cc:trickster/health",
+        "cc:mr/mana",
+        "cc:mr/manaregen",
+        "cc:mr/manaregen_delay",
+        "cc:mr/manaregen_delaytick",
+        "cc:trickster/select_mode",
+        "cc:trickster/summon_husk",
+        "cc:trickster/blue_active",
+        "cc:trickster/mode"
+    ],
+    "icon": {
+        "id": "minecraft:player_head"
+    },
+    "order": 0,
+    "impact": 3
+}

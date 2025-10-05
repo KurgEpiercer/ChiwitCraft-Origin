@@ -1,0 +1,11 @@
+{
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "id": "max_health",
+        "attribute": "minecraft:generic.max_health",
+        "operation": "add_value",
+        "amount": -4
+    },
+    "update_health": true,
+    "hidden":true
+}

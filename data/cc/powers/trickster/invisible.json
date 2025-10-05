@@ -1,0 +1,79 @@
+{
+    "type": "origins:multiple",
+    "time_out_invsible": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 6,
+        "start_value": 6,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 9
+        }
+    },
+    "invisible": {
+        "type": "origins:invisibility",
+        "render_armor": false
+    },
+    "effect": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "id": "minecraft:speed",
+                            "duration": 15,
+                            "amplifier": 1,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": false
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "time_remove": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_time_out_invsible",
+                    "change": -1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_time_out_invsible",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "remove_inv": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:remove_power",
+                    "power": "*:*"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_time_out_invsible",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    }
+}
