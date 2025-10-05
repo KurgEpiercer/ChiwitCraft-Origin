@@ -17,6 +17,10 @@
         "entity_action": {
             "type": "origins:and",
             "actions": [
+                 {
+                    "type":"origins:execute_command",
+                    "command":"team join husk.trickster"
+                },
                 {
                     "type": "origins:apply_effect",
                     "effects": [

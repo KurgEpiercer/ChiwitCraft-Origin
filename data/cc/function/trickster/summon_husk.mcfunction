@@ -12,3 +12,5 @@ execute at @e[tag=husk_spawner] run particle minecraft:smoke ~ ~1 ~ 0.43 0.43 0.
 
 execute as @e[tag=husk_spawner] at @s run summon husk ~ ~ ~ {Tags:["temp_husk"], CanPickUpLoot:0b, DeathLootTable:"minecraft:empty", DeathLootTableSeed:0}
 kill @e[tag=husk_spawner]
+team add husk.trickster
+team modify husk.trickster seeFriendlyInvisibles false
