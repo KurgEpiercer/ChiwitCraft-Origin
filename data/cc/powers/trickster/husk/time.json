@@ -84,8 +84,12 @@
                     "power": "*:*"
                 },
                 {
-                    "type":"origins:execute_command",
-                    "command":"kill @s"
+                    "type": "origins:delay",
+                    "ticks": 10,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "kill @s"
+                    }
                 }
             ]
         },
