@@ -4,7 +4,10 @@
         "cc:reaper",
         "cc:angel",
         "cc:paladin",
-        "cc:human"
+        "cc:human",
+        "cc:valkyrie",
+        "cc:hex",
+        "cc:trickster"
     ],
     "replace": true,
     "loading_priority": 1

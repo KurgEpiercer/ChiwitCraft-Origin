@@ -1,0 +1,75 @@
+{
+    "name": "Grip",
+    "description": "Shoot a magical tether to pull yourself towards a target or pull a target towards you.",
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:raycast",
+        "distance": 10,
+        "block": false,
+        "entity": true,
+        "shape_type": "visual",
+        "fluid_handling": "any",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:grant_power",
+                                "power": "*:hex/anti_ender_peal",
+                                "source": "*:power_source"
+                            },
+                            {
+                                "type": "origins:grant_power",
+                                "power": "*:hex/grip_modify",
+                                "source": "*:power_source"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "hit_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:grant_power",
+                    "power": "*:hex/anti_ender_peal",
+                    "source": "*:power_source"
+                },
+                {
+                    "type": "origins:grant_power",
+                    "power": "*:hex/grip_modify",
+                    "source": "*:power_source"
+                }
+            ]
+        }
+    },
+    "key": {
+        "key": "key.origins.secondary_active",
+        "continuous": false
+    },
+    "cooldown": 100,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 5,
+        "order": 1
+    },
+     "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 10,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "any"
+                }
+            ]
+        }
+}

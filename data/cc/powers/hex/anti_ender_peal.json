@@ -1,0 +1,57 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "peal_bar_tick_action": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "remove_tick": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_peal_bar_tick_action",
+            "change": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_peal_bar_tick_action",
+            "comparison": "!=",
+            "compare_to": 5
+        }
+    },
+    "remove_power": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action":     {
+            "type": "origins:execute_command",
+            "command": "power remove @s cc:hex/anti_ender_peal"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_peal_bar_tick_action",
+            "comparison": "==",
+            "compare_to": 5
+        }
+    },
+    "ender_anti_use": {
+        "name": "Can't use now",
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:ender_pearl"
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_peal_bar_tick_action",
+            "comparison": "!=",
+            "compare_to": 5
+        }
+    }
+}

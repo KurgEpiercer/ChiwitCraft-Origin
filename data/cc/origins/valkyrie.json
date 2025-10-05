@@ -1,0 +1,13 @@
+{
+    "name": "Valkyrie",
+    "description": "none description",
+    "powers": [
+        "cc:valk/judgement_wave",
+        "cc:valk/judgement_blitz"
+    ],
+    "icon": {
+        "id": "minecraft:player_head"
+    },
+    "order": 0,
+    "impact": 3
+}

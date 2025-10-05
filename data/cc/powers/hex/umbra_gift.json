@@ -1,0 +1,242 @@
+{
+    "name": "Umbra's Gift",
+    "description": "",
+    "type": "origins:multiple",
+    "bar_boolean_action": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "hud_render": {
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_bar_boolean_action",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 24
+        }
+    },
+    "active_debuff_area": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "cooldown": 150,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 0,
+            "order": 1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_bar_boolean_action",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @e[tag=!death,distance=1..10]",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 35,
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_bar_boolean_action",
+                        "change": 1
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "shape": "cube",
+                    "radius": 10,
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{Tags: ['death']}",
+                            "inverted": true
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:mr/mana",
+                                            "change": -30
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "/particle dust_color_transition{from_color:[0.63,0.31,0.89],to_color:[0.09,0.22,0.87],scale:1} ~ ~1 ~ 0.43 0.35 0.43 0 25 normal"
+                                        },
+                                        {
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:mining_fatigue",
+                                                    "duration": 61,
+                                                    "amplifier": 4,
+                                                    "is_ambient": false,
+                                                    "show_particles": true,
+                                                    "show_icon": true
+                                                },
+                                                {
+                                                    "id": "minecraft:weakness",
+                                                    "duration": 61,
+                                                    "amplifier": 2,
+                                                    "is_ambient": false,
+                                                    "show_particles": true,
+                                                    "show_icon": true
+                                                },
+                                                {
+                                                    "id": "minecraft:slowness",
+                                                    "duration": 61,
+                                                    "amplifier": 1,
+                                                    "is_ambient": false,
+                                                    "show_particles": true,
+                                                    "show_icon": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "active_raycast": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 10,
+            "block": false,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "any",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags: ['death']}"
+                }
+            },
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:mr/mana",
+                                    "change": 30
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "/particle dust_color_transition{from_color:[0.63,0.31,0.89],to_color:[0.35,1.0,0.42],scale:1} ~ ~1 ~ 0.43 0.35 0.43 0 25 normal"
+                                },
+                                {
+                                    "type": "origins:apply_effect",
+                                    "effects": [
+                                        {
+                                            "id": "minecraft:haste",
+                                            "duration": 121,
+                                            "amplifier": 1,
+                                            "is_ambient": false,
+                                            "show_particles": true,
+                                            "show_icon": true
+                                        },
+                                        {
+                                            "id": "minecraft:speed",
+                                            "duration": 121,
+                                            "amplifier": 2,
+                                            "is_ambient": false,
+                                            "show_particles": true,
+                                            "show_icon": true
+                                        },
+                                        {
+                                            "id": "minecraft:strength",
+                                            "duration": 121,
+                                            "amplifier": 1,
+                                            "is_ambient": false,
+                                            "show_particles": true,
+                                            "show_icon": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "before_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:swing_hand",
+                        "hand": "MAIN_HAND"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_bar_boolean_action",
+                        "change": -1
+                    }
+                ]
+            }
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "cooldown": 150,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 9
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_bar_boolean_action",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 10,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "any"
+                }
+            ]
+        }
+    }
+}

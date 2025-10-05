@@ -1,0 +1,90 @@
+{
+    "name":"Blue active buff",
+    "description":"",
+    "type": "origins:multiple",
+    "action": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:mr/mana",
+                    "change": -40
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "shape": "cube",
+                    "radius": 12,
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{Tags: ['death']}"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:resistance",
+                                                    "duration": 240,
+                                                    "amplifier": 1,
+                                                    "is_ambient": false,
+                                                    "show_particles": true,
+                                                    "show_icon": true
+                                                },
+                                                {
+                                                    "id": "minecraft:health_boost",
+                                                    "duration": 240,
+                                                    "amplifier": 0,
+                                                    "is_ambient": false,
+                                                    "show_particles": true,
+                                                    "show_icon": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 24
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:trickster/select_mode_blue",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:mr/mana",
+                    "comparison": ">=",
+                    "compare_to": 40
+                }
+            ]
+        }
+    }
+}

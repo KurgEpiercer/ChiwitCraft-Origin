@@ -1,0 +1,33 @@
+{
+    "hidden":true,
+    "type": "origins:multiple",
+    "bar_boolean_action": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 1
+        }
+    },
+    "modified_after": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "insta_hit",
+                "attribute": "minecraft:generic.attack_speed",
+                "operation": "add_value",
+                "amount": 4
+            }
+        ]
+    },
+    "seft_action": {
+        "type": "origins:self_action_on_hit",
+        "entity_action": {
+            "type": "origins:remove_power",
+            "power": "*:*"
+        }
+    }
+}

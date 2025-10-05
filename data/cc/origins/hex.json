@@ -1,0 +1,13 @@
+{
+    "name": "Hex",
+    "description": "none description",
+    "powers": [
+        "cc:hex/umbra_gift",
+        "cc:hex/grip"
+    ],
+    "icon": {
+        "id": "minecraft:player_head"
+    },
+        "order": 0,
+    "impact": 3
+}

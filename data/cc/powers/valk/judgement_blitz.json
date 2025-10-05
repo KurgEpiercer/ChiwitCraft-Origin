@@ -1,0 +1,34 @@
+{
+    "name": "Judgement Blitz",
+    "description": "",
+    "type": "origins:multiple",
+    "dash": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "space": "local",
+                    "y": 0.2,
+                    "z": 1.3
+                },
+                {
+                    "type": "origins:grant_power",
+                    "power": "*:valk/hit",
+                    "source": "*:power_source"
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 20
+        }
+    }
+}

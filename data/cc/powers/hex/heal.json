@@ -1,0 +1,61 @@
+{
+    "name": "Hex Healing",
+    "description": "When standing still for a short period of time, you will slowly regenerate health.",
+    "type": "origins:multiple",
+    "bar_tick_detect": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "remove_tick": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_bar_tick_detect",
+            "change": 1
+        },
+        "condition": {
+            "type": "origins:moving",
+            "inverted": true
+        }
+    },
+    "remove_tick2s": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_bar_tick_detect",
+            "change": -1
+        },
+        "condition": {
+            "type": "origins:moving"
+        }
+    },
+    "regen_mode": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [
+                {
+                    "id": "minecraft:regeneration",
+                    "duration": 21,
+                    "amplifier": 1,
+                    "is_ambient": false,
+                    "show_particles": true,
+                    "show_icon": true
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_bar_tick_detect",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "type": "origins:multiple",
+    "time_out": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 10,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 9
+        }
+    },
+    "effect": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "id": "minecraft:speed",
+                            "duration": 15,
+                            "amplifier": 2,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "id": "minecraft:resistance",
+                            "duration": 15,
+                            "amplifier": 0,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "id": "minecraft:strength",
+                            "duration": 15,
+                            "amplifier": 0,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "time_remove": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_time_out",
+                    "change": -1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_time_out",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "remove_end": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:remove_power",
+                    "power": "*:*"
+                },
+                {
+                    "type":"origins:execute_command",
+                    "command":"kill @s"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_time_out",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "death_reder": {
+        "type": "origins:prevent_entity_render",
+        "entity_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags: ['death']}"
+        }
+    }
+}
