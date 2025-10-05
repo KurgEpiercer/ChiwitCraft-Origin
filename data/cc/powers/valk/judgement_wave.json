@@ -3,7 +3,7 @@
     "description": "",
     "type": "origins:active_self",
     "key": {
-        "key": "key.origins.primary_active",
+        "key": "key.origins.secondary_active",
         "continuous": false
     },
     "cooldown": 50,

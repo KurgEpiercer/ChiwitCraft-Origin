@@ -4,7 +4,7 @@
     "bar_tick_action": {
         "type": "origins:resource",
         "min": 0,
-        "max": 3600,
+        "max": 120,
         "hud_render": {
             "should_render": false
         }
@@ -21,7 +21,7 @@
             "type": "origins:resource",
             "resource": "*:*_bar_tick_action",
             "comparison": "!=",
-            "compare_to": 3600
+            "compare_to": 120
         }
     },
     "remove_power": {
@@ -38,7 +38,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_bar_tick_action",
                     "comparison": "==",
-                    "compare_to": 3600
+                    "compare_to": 120
                 },
                 {
                     "type": "origins:health",
