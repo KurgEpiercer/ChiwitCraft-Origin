@@ -3,8 +3,8 @@
     "time_out_invsible": {
         "type": "origins:resource",
         "min": 0,
-        "max": 6,
-        "start_value": 6,
+        "max": 8,
+        "start_value": 8,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
@@ -47,14 +47,18 @@
                     "type": "origins:change_resource",
                     "resource": "*:*_time_out_invsible",
                     "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join husk.trickster"
                 }
             ]
         },
         "condition": {
             "type": "origins:resource",
             "resource": "*:*_time_out_invsible",
-            "comparison": ">",
-            "compare_to": 0
+            "comparison": ">=",
+            "compare_to": 2
         }
     },
     "remove_inv": {
@@ -66,6 +70,10 @@
                 {
                     "type": "origins:remove_power",
                     "power": "*:*"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team leave @s"
                 }
             ]
         },
