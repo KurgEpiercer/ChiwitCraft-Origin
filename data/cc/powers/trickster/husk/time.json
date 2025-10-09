@@ -17,7 +17,7 @@
         "entity_action": {
             "type": "origins:and",
             "actions": [
-                 {
+                {
                     "type":"origins:execute_command",
                     "command":"team join husk.trickster"
                 },
@@ -61,14 +61,18 @@
             "actions": [
                 {
                     "type": "origins:change_resource",
-                    "resource": "*:*_time_out",
+                    "resource": "*:*_time_out_invsible",
                     "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join husk.trickster"
                 }
             ]
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_time_out",
+            "resource": "*:*_time_out_invsible",
             "comparison": ">",
             "compare_to": 0
         }
