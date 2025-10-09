@@ -18,8 +18,8 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type":"origins:execute_command",
-                    "command":"team join husk.trickster"
+                    "type": "origins:execute_command",
+                    "command": "team join husk.trickster"
                 },
                 {
                     "type": "origins:apply_effect",
@@ -61,18 +61,14 @@
             "actions": [
                 {
                     "type": "origins:change_resource",
-                    "resource": "*:*_time_out_invsible",
+                    "resource": "*:*_time_out",
                     "change": -1
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "team join husk.trickster"
                 }
             ]
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_time_out_invsible",
+            "resource": "*:*_time_out",
             "comparison": ">",
             "compare_to": 0
         }
@@ -84,12 +80,20 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:remove_power",
-                    "power": "*:*"
+                    "type": "origins:delay",
+                    "ticks": 7,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "kill @s"
+                    }
                 },
                 {
-                    "type":"origins:execute_command",
-                    "command":"kill @s"
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "kill @s"
+                    }
                 }
             ]
         },

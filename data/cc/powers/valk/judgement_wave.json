@@ -6,7 +6,7 @@
         "key": "key.origins.secondary_active",
         "continuous": false
     },
-    "cooldown": 50,
+    "cooldown": 100,
     "hud_render": {
         "should_render": true,
         "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
@@ -75,7 +75,24 @@
                         ]
                     }
                 }
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "*:mr/mana",
+                "change": -50
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "*:mr/manaregen_delay",
+                "operation": "set",
+                "change": 5
             }
         ]
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "*:mr/mana",
+        "comparison": ">=",
+        "compare_to": 50
     }
 }

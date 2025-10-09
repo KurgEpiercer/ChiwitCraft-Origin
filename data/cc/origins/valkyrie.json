@@ -3,7 +3,13 @@
     "description": "none description",
     "powers": [
         "cc:valk/judgement_wave",
-        "cc:valk/judgement_blitz"
+        "cc:valk/judgement_blitz",
+        "cc:valk/hitcounter",
+        "cc:valk/valkpassive",
+        "cc:mr/mana",
+        "cc:mr/manaregen",
+        "cc:mr/manaregen_delay",
+        "cc:mr/manaregen_delaytick"
     ],
     "icon": {
         "id": "minecraft:player_head"

@@ -17,8 +17,30 @@
                     "type": "origins:grant_power",
                     "power": "*:valk/hit",
                     "source": "*:power_source"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "attribute @s minecraft:generic.attack_speed modifier add insta_hit 4 add_value"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:mr/mana",
+                    "change": -35
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:mr/manaregen_delay",
+                    "operation": "set",
+                    "change": 5
                 }
             ]
+        },
+    
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:mr/mana",
+            "comparison": ">=",
+            "compare_to": 35
         },
         "key": {
             "key": "key.origins.primary_active",

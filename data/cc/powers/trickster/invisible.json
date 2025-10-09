@@ -57,8 +57,8 @@
         "condition": {
             "type": "origins:resource",
             "resource": "*:*_time_out_invsible",
-            "comparison": ">=",
-            "compare_to": 2
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "remove_inv": {
